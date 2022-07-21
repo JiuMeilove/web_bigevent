@@ -38,14 +38,16 @@ $(() => {
         return layui.layer.msg(res.message)
       }
       layui.layer.msg('注册成功')
-        ('#link_login').click();
+      $('#link_login').click();
     })
 
   });
   // 监听登录表单的提交事件
-  $('#form_login').on('submit', e => {
+  $('#form_login').on('submit', function (e) {
     // 阻止默认提交行为
     e.preventDefault()
+    console.log(this)
+    console.log($(this).serialize());
     $.ajax({
       url: '/api/login',
       method: 'POST',
